@@ -4,8 +4,6 @@ CUI_ROOT=/content/drive/MyDrive/cui
 mkdir -p $CUI_ROOT
 WORKDIR="$CUI_ROOT/ComfyUI"
 
-pip install -r requirements.txt
-
 cd $CUI_ROOT
 
 [ ! -d $WORKDIR ] && git clone https://github.com/comfyanonymous/ComfyUI.git

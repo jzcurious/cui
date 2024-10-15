@@ -1,5 +1,0 @@
-ultralytics
-gitpython
-simpleeval
-lpips
-einops
