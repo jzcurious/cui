@@ -11,16 +11,18 @@ cd $WORKDIR
 git pull
 pip install -r requirements.txt
 
-# cd custom_nodes
-# [ ! -d 'ComfyUI-Manager' ] && git clone https://github.com/ltdrdata/ComfyUI-Manager.git
-# cd 'ComfyUI-Manager'
-# git pull
+cd custom_nodes
+[ ! -d 'ComfyUI-Manager' ] && git clone https://github.com/ltdrdata/ComfyUI-Manager.git
+cd 'ComfyUI-Manager'
+git pull
+pip install -r requirements.txt
 
 # cd ..
 # [ ! -d 'ComfyUI-Impact-Pack' ] && git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack.git
 # cd 'ComfyUI-Impact-Pack'
 # git pull
 # git submodule update --init --recursive
+# pip install -r requirements.txt
 
 # cd ..
 # [ ! -d 'ComfyUI-OpenPose-Editor' ] && git clone https://github.com/space-nuko/ComfyUI-OpenPose-Editor.git
@@ -31,9 +33,3 @@ pip install -r requirements.txt
 # [ ! -d 'ComfyUI_IPAdapter_plus' ] && git clone https://github.com/cubiq/ComfyUI_IPAdapter_plus.git
 # git pull
 # cd $WORKDIR
-
-# pip install -r requirements.txt \
-#     --extra-index-url https://download.pytorch.org/whl/cu121
-
-# !wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-# !dpkg -i cloudflared-linux-amd64.deb
