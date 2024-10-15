@@ -35,5 +35,5 @@ pip install -r requirements.txt
 # pip install -r requirements.txt \
 #     --extra-index-url https://download.pytorch.org/whl/cu121
 
-!wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-!dpkg -i cloudflared-linux-amd64.deb
+# !wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+# !dpkg -i cloudflared-linux-amd64.deb
