@@ -11,6 +11,7 @@ cd $CUI_ROOT
 [ ! -d $WORKDIR ] && git clone https://github.com/comfyanonymous/ComfyUI.git
 cd $WORKDIR
 git pull
+pip install -r requirements.txt
 
 # cd custom_nodes
 # [ ! -d 'ComfyUI-Manager' ] && git clone https://github.com/ltdrdata/ComfyUI-Manager.git
