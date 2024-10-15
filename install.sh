@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 CUI_ROOT=/content/drive/MyDrive/cui
+mkdir -p $CUI_ROOT
 WORKDIR="$CUI_ROOT/ComfyUI"
 
 pip install -r requirements.txt
