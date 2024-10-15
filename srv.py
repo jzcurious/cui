@@ -4,29 +4,22 @@ import time
 import socket
 import urllib.request
 
-
 def iframe_thread(port):
-    while True:
-        time.sleep(0.5)
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        result = sock.connect_ex(('127.0.0.1', port))
-        if result == 0:
-            break
-        sock.close()
+  while True:
+      time.sleep(0.5)
+      sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+      result = sock.connect_ex(('127.0.0.1', port))
+      if result == 0:
+        break
+      sock.close()
+  print("\nComfyUI finished loading, trying to launch cloudflared (if it gets stuck here cloudflared is having issues)\n")
 
-    print("\n[stuck]\n")
-
-    print(
-        urllib.request
-        .urlopen('https://ipv4.icanhazip.com')
-        .read().decode('utf8').strip("\n")
-    )
-
-    p = subprocess.Popen(
-        ["lt", "--port", "{}".format(port)], stdout=subprocess.PIPE)
-
-    for line in p.stdout:
-        print(line.decode(), end='')
+  p = subprocess.Popen(["cloudflared", "tunnel", "--url", "http://127.0.0.1:{}".format(port)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+  for line in p.stderr:
+    l = line.decode()
+    if "trycloudflare.com " in l:
+      print("This is the URL to access ComfyUI:", l[l.find("http"):], end='')
+    #print(l, end='')
 
 
 threading.Thread(target=iframe_thread, daemon=True, args=(8188,)).start()
